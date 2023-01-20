@@ -23,20 +23,20 @@ app.use(express.urlencoded());
 
 
 //template engine
-app.set('views','./src/views');
+app.set('views','./docs');
 app.set('view engine', 'ejs')
 
 //routes
-
 app.get("/", function(req,res){
-    res.render("home")
-});
-app.get("/src/views/home.ejs", function(req,res){
-    res.render("home")
+    res.render("./index.ejs")
 });
 
-app.get("/src/views/todo.ejs#", function(req,res){
-    res.render("home")
+app.get("/src/views/index.ejs", function(req,res){
+    res.render("index")
+});
+
+app.get("/src/views/index.ejs#", function(req,res){
+    res.render("index")
 });
 
 

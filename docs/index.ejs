@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+     <script src="https://kit.fontawesome.com/f72372325e.js" crossorigin="anonymous"></script>
+     <script src="/js/home.js"></script>
+</head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/src/views/index.ejs">Focus</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="/src/views/index.ejs">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/src/views/todo.ejs">ToDo list</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="fzf.ejs">Tag based search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="fzf.ejs" >About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="fzf.ejs" >More</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+
+          <div class="row">
+            <div class="col-lg-8 col-md-6 col-sm-12">
+              <div class="search">
+
+                <form class="d-flex"  action="blank" method="get" >
+                    <script>
+                      
+                        function changeAction(val) {
+                           
+                            document.forms[0].action = val[0];
+                            document.getElementsByClassName('me-2')[0].placeholder=val[1]
+                            
+                        }
+
+                        
+                    </script>
+                    <input class="form-control me-2" type="text" placeholder="Select an option" aria-label="Search" name="q">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    
+                  </form>
+              </div>
+    
+    
+              <div class="iconsdev">
+                <div class="icons">
+                    
+                    <button data-active="youtube" href="" onclick="changeAction(['https://www.youtube.com/search','Search on YouTube'])"   ><i class="fa-brands fa-youtube" ></i></button>
+                    <button data-active="google" href="" onclick="changeAction(['https://www.google.com/search','Search on Google'])" ><i class="fa-brands fa-google" ></i></button>
+                    <button data-active="quora" href="" onclick="changeAction(['https://www.quora.com/search','Search on Quora'])"><i class="fa-brands fa-quora" ></i></button>
+                    <button data-active="stack" href="" onclick="changeAction(['https://stackoverflow.com/search','Search on Stack overflow'])" ><i class="fa-brands fa-stack-overflow" ></i></button>
+                    <button data-active="github" href="" onclick="changeAction(['https://github.com/search','Search on Github'])" ><i class="fa-brands fa-github" ></i></button>
+                    
+                  </div>
+              </div>
+            </div>
+
+
+
+                  
+
+
+                
+
+              
+
+
+
+
+
+            
+            <div class="col-lg-4 col-md-6 ">
+              <div class="right">
+                <div class="clock">
+                  <div class="inside">
+                      <div class="content">
+                          <p class="days">
+                              <span id="sun">SUN</span>&nbsp;
+                              <span id="mon">MON</span>&nbsp;
+                              <span id="tus">TUS</span>&nbsp;
+                              <span id="wed">WED</span>&nbsp;
+                              <span id="thu">THU</span>&nbsp;
+                              <span id="fri">FRI</span>&nbsp;
+                              <span id="sat">SAT</span>
+                          </p>
+                          <br>
+                          <p class="time">
+                              <span id="hours"></span>:<span id="min"></span>:<span id="sec"></span>&nbsp;&nbsp;<span id="time"></span>
+                          </p>
+  
+                          <div id="date">
+                              
+                              <div class="sp">
+                                  <span id="day"></span>
+                              <span id="month"></span>
+                              <span id="year"></span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+    </div>
+
+
+    
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" 
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script>
+      var days=['sun','mon','tus','wed','thu','fri','sat'];
+      var month=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      function clock(){
+          var today=new Date();
+          var h=today.getHours();
+          var m=today.getMinutes();
+          var s=today.getSeconds();
+          var day= h<11 ? 'AM': 'PM';
+          var daytoday=today.getDay();
+          var date=today.getDate();
+          var mon=today.getMonth();
+          var year=today.getFullYear();
+          
+
+      
+
+      h=h<10 ? '0'+h:h;
+      m=m<10 ? '0'+m:m;
+      s=s<10 ? '0'+s:s;
+      
+
+      document.getElementById('hours').innerHTML=h;
+      document.getElementById('min').innerHTML=m;
+      document.getElementById('sec').innerHTML=s;
+      document.getElementById('time').innerHTML=day;
+      document.getElementById('day').innerHTML=date;
+      document.getElementById('month').innerHTML=month[mon];
+      document.getElementById('year').innerHTML=year;
+      document.getElementById(''+days[daytoday]+'').style.color='red';
+
+      }
+      var inter=setInterval(clock,400);
+  </script>
+
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
+  </body>
+</html>
