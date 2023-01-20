@@ -4,14 +4,19 @@ const port =process.env.PORT  || 5000;
 const http=require("http");
 const hostname='0.0.0.0';
 
-
+const mongoose=require('mongoose');
 const server = http.createServer((req,res)=>{
     res.statusCode=200;
     res.setHeader('Content-Type', 'text/plain');
     res.end('Zeet Node');
 });
 
-const db = require('./config/mongoose');
+const db = 'mongodb+srv://nodejs-focus-web:27Nov2001.@cluster0.oe7iomc.mongodb.net/nodejs-focus-web?retryWrites=true&w=majority'
+mongoose.connect(db).then(() => {
+    console.log("connscted to mongooseatlas");
+}).catch((err)=> console.log("error"));
+
+
 const  Task  = require('./models/task');
 //static files
 app.use(express.static('public'));

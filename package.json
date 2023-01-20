@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "build": "npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sanjay",
@@ -23,6 +24,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sanjay1904m1/nodejs-focus_web.git"
+    "url": "https://github.com/sanjay1904m1/nodejs-focus-web.git"
   }
 }
