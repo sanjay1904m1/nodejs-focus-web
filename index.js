@@ -1,7 +1,15 @@
 const express=require("express");
 const app=express();
-const port =5000;
+const port =process.env.PORT  || 5000;
+const http=require("http");
+const hostname='0.0.0.0';
 
+
+const server = http.createServer((req,res)=>{
+    res.statusCode=200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Zeet Node');
+});
 
 const db = require('./config/mongoose');
 const  Task  = require('./models/task');
@@ -19,8 +27,7 @@ app.set('views','./src/views');
 app.set('view engine', 'ejs')
 
 //routes
-const homeRouter=require('./src/routes/home');
-app.use('/',homeRouter);
+
 app.get("/", function(req,res){
     res.render("home")
 });
@@ -116,7 +123,7 @@ app.get("*", function(req,res){
 
 
 //listen
-app.listen(port, function(){console.log("started the wepage");});
+app.listen(port, hostname, function(){console.log("started the wepage");});
 
 
 
